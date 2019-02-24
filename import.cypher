@@ -1,6 +1,6 @@
 USING PERIODIC COMMIT 
 LOAD CSV WITH HEADERS 
-FROM 'https://raw.githubusercontent.com/moxious/cypher-surface/master/surface-3.4.9.csv'
+FROM 'https://raw.githubusercontent.com/moxious/cypher-surface/master/neo4j-surface.csv'
 as line
 
 MERGE (neo4j:Neo4j { version: line.version })
