@@ -1,6 +1,7 @@
 #!/bin/bash
 # Quick script to start a community instance for testing.
 docker stop neo4j-empty
+docker rm neo4j-empty
 
 if [ -z "$1" ] ; then
    echo "Call me with a neo4j version"
@@ -27,6 +28,7 @@ docker run -d --name neo4j-empty --rm \
         --env=NEO4J_dbms_memory_heap_initial__size=2G \
         --env=NEO4J_dbms_memory_heap_max__size=4G \
 	--env NEO4J_AUTH=neo4j/admin \
+        --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes \
 	-t $NEO4J
 
 echo "Letting container come up..."
